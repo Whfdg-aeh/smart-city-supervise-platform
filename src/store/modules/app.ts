@@ -1,66 +1,24 @@
-import { defineStore } from "pinia";
-import { useStorage } from "@vueuse/core";
-import defaultSettings from "@/config/setting";
-import zhCn from "element-plus/es/locale/lang/zh-cn";
-import en from "element-plus/es/locale/lang/en";
+import { defineStore } from 'pinia'
+import { store } from '@/store'
+import setting from '@/config/setting'
 
-export const useAppStore = defineStore("app", () => {
-  const language = useStorage("language", defaultSettings.language),
-    size = useStorage<any>("size", defaultSettings.size),
-    sidebarStatus = useStorage("sidebarStatus", "closed");
+export const useAppStore = defineStore('app', () => {
+  const locale = ref<any>(null)
+  const size = ref<string>(setting.size)
+  // 修改密码弹窗全局控制
+  const changePasswordVisible = ref(false)
 
-  const sidebar = reactive({
-    opened: sidebarStatus.value === "opened",
-    withoutAnimation: false,
-  });
-
-  const locale = computed(() => {
-    if (language?.value == "en") {
-      return en;
-    } else {
-      return zhCn;
-    }
-  })
-
-  // Change language
-  function changeLanguage(val: string) {
-    language.value = val;
+  function openChangePassword() {
+    changePasswordVisible.value = true
   }
 
-  function toggleSidebar() {
-    sidebar.opened = !sidebar.opened;
-    sidebar.withoutAnimation = false;
-    if (sidebar.opened) {
-      sidebarStatus.value = "opened";
-    } else {
-      sidebarStatus.value = "closed";
-    }
+  function closeChangePassword() {
+    changePasswordVisible.value = false
   }
 
-  function closeSideBar(withoutAnimation: boolean) {
-    sidebar.opened = false;
-    sidebar.withoutAnimation = withoutAnimation;
-    sidebarStatus.value = "closed";
-  }
+  return { locale, size, changePasswordVisible, openChangePassword, closeChangePassword }
+})
 
-  function openSideBar(withoutAnimation: boolean) {
-    sidebar.opened = true;
-    sidebar.withoutAnimation = withoutAnimation;
-    sidebarStatus.value = "opened";
-  }
-
-  function changeSize(val: string) {
-    size.value = val;
-  }
-
-  return {
-    sidebar,
-    locale,
-    changeLanguage,
-    toggleSidebar,
-    closeSideBar,
-    openSideBar,
-    size,
-    changeSize
-  };
-});
+export function useAppStoreHook() {
+  return useAppStore(store)
+}

@@ -67,11 +67,25 @@ export const useUserStore = defineStore("user", () => {
     }
   }
 
+  function updateAvatar(avatar: string) {
+    if (UserData.value) {
+      UserData.value = { ...UserData.value, avatar }
+    }
+  }
+
+  function updateUserInfo(info: Record<string, any>) {
+    if (UserData.value) {
+      UserData.value = { ...UserData.value, ...info }
+    }
+  }
+
   return {
     UserData,
     login,
     getUserInfo,
-    logout
+    logout,
+    updateAvatar,
+    updateUserInfo
   }
 })
 

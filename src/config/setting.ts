@@ -12,7 +12,7 @@ interface DefaultSettings {
 }
 
 const defaultSettings: DefaultSettings = {
-    title: "vite-element-template",
+    title: "智慧城市事项监管平台",
     header: "60px",
     aside: "200px",
     showSidebar: true,

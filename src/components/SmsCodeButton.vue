@@ -64,7 +64,7 @@ async function sendSmsCode() {
   try {
     smsCodeDisabled.value = true;
     
-    await useAxios().post('/supplier-api/sys/sendSmsCode', {
+    await useAxios().post('/api/sms/send', {
       phonenumber: props.phonenumber.trim(),
       codeType: props.type
     });
