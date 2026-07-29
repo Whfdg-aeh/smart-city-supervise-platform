@@ -40,24 +40,24 @@
 实现**页面访问权限 + 按钮操作权限**双层拦截；根据角色动态渲染菜单与操作按钮。
 
 ## 📁 目录结构
-src
-├── assets # 静态资源、全局样式（自定义深色政务主题）
-├── components # 通用公共组件、业务封装组件
-├── composable # Vue3 组合式函数（业务逻辑抽离）
-├── config # 全局项目配置
-├── middleware # 路由守卫、登录鉴权逻辑
-├── pages # 所有业务页面（独立开发）
-├── store # Pinia 全局状态管理
-├── types # TypeScript 全局类型定义
-├── utils # 工具函数（Excel 导出、时间处理、通用方法）
-├── App.vue # 根组件
-└── main.ts # 项目入口文件
-
-mock/ # 开发环境模拟接口（按需精简）
-public/ # 静态资源
-.env.* # 多环境变量配置
-index.html # HTML 入口
-package.json # 依赖与脚本命令
+src<br>
+├── assets        # 静态资源、全局样式（自定义深色政务主题）<br>
+├── components    # 通用公共组件、业务封装组件<br>
+├── composable    # Vue3 组合式函数（业务逻辑抽离）<br>
+├── config        # 全局项目配置<br>
+├── middleware    # 路由守卫、登录鉴权逻辑<br>
+├── pages         # 所有业务页面（独立开发）<br>
+├── store         # Pinia 全局状态管理<br>
+├── types         # TypeScript 全局类型定义<br>
+├── utils         # 工具函数（Excel 导出、时间处理、通用方法）<br>
+├── App.vue       # 根组件<br>
+└── main.ts       # 项目入口文件<br>
+<br>
+mock/             # 开发环境模拟接口（按需精简）<br>
+public/           # 静态资源<br>
+.env.*            # 多环境变量配置<br>
+index.html        # html 入口<br>
+package.json      # 依赖与脚本命令
 
 ## 🚀 项目启动命令
 ```bash
