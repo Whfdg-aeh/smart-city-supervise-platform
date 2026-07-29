@@ -57,7 +57,6 @@ public/ # 静态资源
 .env.* # 多环境变量配置
 index.html # html 入口
 package.json # 依赖与脚本命令
-plaintext
 
 ## 🚀 项目启动命令
 ```bash
